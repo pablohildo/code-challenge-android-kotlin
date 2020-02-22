@@ -8,7 +8,7 @@ import okhttp3.Response
  and the wanted `language`, avoiding the need to add those params to every api call
 */
 
-class KeyInterceptor: Interceptor {
+class ApiInterceptor: Interceptor {
     override fun intercept(chain: Interceptor.Chain): Response {
         val chainRequest = chain.request()
         val url = chainRequest

@@ -1,10 +1,11 @@
 package com.arctouch.codechallenge.home
 
 import android.os.Bundle
-import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.arctouch.codechallenge.R
+import kotlinx.android.synthetic.main.home_activity.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.dsl.module
 
@@ -18,22 +19,17 @@ class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_activity)
-
+        val adapter = HomeAdapter()
+        recyclerView.adapter = adapter
         viewModel.upcomingMovies.observe(this, Observer {
-            it.forEach { filme ->
-                Log.d("Teste", filme.title)
-            }
+            adapter.submitList(it)
         })
+//        viewModel.moviesWithGenres.observe(this, Observer {
+//            if (it != null) recyclerView.adapter = HomeAdapter(it)
+//        })
 //
-//        api.upcomingMovies(TmdbApi.API_KEY, TmdbApi.DEFAULT_LANGUAGE, 1, TmdbApi.DEFAULT_REGION)
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe {
-//                    val moviesWithGenres = it.results.map { movie ->
-//                        movie.copy(genres = Cache.genres.filter { movie.genreIds?.contains(it.id) == true })
-//                    }
-//                    recyclerView.adapter = HomeAdapter(moviesWithGenres)
-//                    progressBar.visibility = View.GONE
-//                }
+//        viewModel.hasMoviesAndGenres.observe(this, Observer {
+//            progressBar.visibility = View.GONE
+//        })
     }
 }

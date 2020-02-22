@@ -5,6 +5,7 @@ import com.arctouch.codechallenge.home.homeActivityModule
 import com.arctouch.codechallenge.home.homeViewModelModule
 import com.arctouch.codechallenge.network.networkModule
 import com.arctouch.codechallenge.repository.moviesModule
+import com.jakewharton.threetenabp.AndroidThreeTen
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -17,5 +18,6 @@ class ChallengeApplication: Application() {
             androidContext(this@ChallengeApplication)
             modules(listOf(networkModule, moviesModule, homeViewModelModule, homeActivityModule))
         }
+        AndroidThreeTen.init(this)
     }
 }
