@@ -1,8 +1,8 @@
 package com.arctouch.codechallenge.di
 
 import com.arctouch.codechallenge.api.TmdbApi
-import com.arctouch.codechallenge.details.DetailsViewModel
-import com.arctouch.codechallenge.home.HomeViewModel
+import com.arctouch.codechallenge.view.details.DetailsViewModel
+import com.arctouch.codechallenge.view.home.HomeViewModel
 import com.arctouch.codechallenge.network.ApiInterceptor
 import com.arctouch.codechallenge.repository.MoviesRepository
 import com.arctouch.codechallenge.util.Constants
@@ -38,6 +38,6 @@ val repositoryModule = module {
 
 
 val viewModelModule = module {
-    viewModel { HomeViewModel(get(), get()) }
+    viewModel { HomeViewModel(get()) }
     viewModel { DetailsViewModel(get()) }
 }
