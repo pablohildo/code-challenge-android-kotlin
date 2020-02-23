@@ -5,5 +5,4 @@
     <dimen name="spacing_small">8dp</dimen>
     <dimen name="card_radius">8dp</dimen>
     <dimen name="card_elevation">4dp</dimen>
-    <dimen name="font_big">36sp</dimen>
 </resources>

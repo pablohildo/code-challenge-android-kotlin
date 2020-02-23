@@ -5,8 +5,8 @@ import androidx.paging.DataSource
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.arctouch.codechallenge.model.Movie
-import com.arctouch.codechallenge.repository.MoviesDataSource
-import com.arctouch.codechallenge.repository.MoviesRepository
+import com.arctouch.codechallenge.core.repository.MoviesDataSource
+import com.arctouch.codechallenge.core.repository.MoviesRepository
 
 class HomeViewModel(private val moviesRepository: MoviesRepository) : ViewModel() {
 

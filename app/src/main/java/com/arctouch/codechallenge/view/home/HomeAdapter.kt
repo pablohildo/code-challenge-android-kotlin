@@ -11,8 +11,8 @@ import com.arctouch.codechallenge.R
 import com.arctouch.codechallenge.view.details.DetailsActivity
 import com.arctouch.codechallenge.model.Movie
 import com.arctouch.codechallenge.view.ui.MovieDiffCallback
-import com.arctouch.codechallenge.util.UrlTypes
-import com.arctouch.codechallenge.util.buildUrl
+import com.arctouch.codechallenge.core.util.UrlTypes
+import com.arctouch.codechallenge.core.util.buildUrl
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import kotlinx.android.synthetic.main.movie_item.view.*

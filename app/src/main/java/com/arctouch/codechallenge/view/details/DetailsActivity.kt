@@ -3,13 +3,14 @@ package com.arctouch.codechallenge.view.details
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.observe
 import com.arctouch.codechallenge.R
 import com.arctouch.codechallenge.model.genresString
 import com.arctouch.codechallenge.view.ui.PaletteRequestListener
-import com.arctouch.codechallenge.util.UrlTypes
-import com.arctouch.codechallenge.util.buildUrl
+import com.arctouch.codechallenge.core.util.UrlTypes
+import com.arctouch.codechallenge.core.util.buildUrl
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.FitCenter
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -23,11 +24,14 @@ class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
+
         val movieId = intent.extras?.getInt("movieId")
-        movieId?.let { viewModel.setCurrentMovie(it.toLong()) }
+
+        if (movieId == null) displayError()
+        else viewModel.setCurrentMovie(movieId.toLong())
+
         viewModel.currentMovie.observe(this) {
             if (it != null) {
-                progressPB.visibility = View.GONE
                 with(it) {
                     titleTXT.text = title
                     runtimeTXT.text = getString(R.string.minutes, runtime.toString())
@@ -45,9 +49,17 @@ class DetailsActivity : AppCompatActivity() {
                             .transform(FitCenter(), RoundedCorners(20))
                             .into(posterIMG)
                 }
+                progressPB.visibility = View.GONE
+            } else {
+                displayError()
             }
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    private fun displayError() {
+        Toast.makeText(this, R.string.movie_error, Toast.LENGTH_LONG).show()
+        finish()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

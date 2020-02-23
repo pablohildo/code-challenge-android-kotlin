@@ -1,11 +1,11 @@
 package com.arctouch.codechallenge.di
 
-import com.arctouch.codechallenge.api.TmdbApi
+import com.arctouch.codechallenge.core.network.api.TmdbApi
 import com.arctouch.codechallenge.view.details.DetailsViewModel
 import com.arctouch.codechallenge.view.home.HomeViewModel
-import com.arctouch.codechallenge.network.ApiInterceptor
-import com.arctouch.codechallenge.repository.MoviesRepository
-import com.arctouch.codechallenge.util.Constants
+import com.arctouch.codechallenge.core.network.ApiInterceptor
+import com.arctouch.codechallenge.core.repository.MoviesRepository
+import com.arctouch.codechallenge.core.util.Constants
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import org.koin.androidx.viewmodel.dsl.viewModel
