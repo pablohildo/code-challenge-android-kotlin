@@ -2,7 +2,6 @@
     <string name="app_name">Desafio Técnico</string>
     <string name="movie_and_genres">%s - %s</string>
     <string name="movie_picture">Pôster do filme</string>
-    <string name="transition_poster">transition_poster</string>
     <string name="label_release_date">Data de lançamento</string>
     <string name="minutes">%s min</string>
 </resources>
