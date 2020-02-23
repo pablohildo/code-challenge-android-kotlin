@@ -6,6 +6,7 @@ import com.arctouch.codechallenge.home.HomeViewModel
 import com.arctouch.codechallenge.network.ApiInterceptor
 import com.arctouch.codechallenge.repository.MoviesRepository
 import com.arctouch.codechallenge.util.Constants
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -15,7 +16,10 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 
 val networkModule = module {
-    factory { ApiInterceptor() }
+    factory<Interceptor> { ApiInterceptor() }
+    factory {
+        OkHttpClient().newBuilder().addInterceptor(get()).build()
+    }
     factory<Converter.Factory> { MoshiConverterFactory.create() }
     single {
         Retrofit
@@ -25,9 +29,6 @@ val networkModule = module {
                 .addConverterFactory(get())
                 .build()
                 .create(TmdbApi::class.java)
-    }
-    single {
-        OkHttpClient().newBuilder().addInterceptor(get()).build()
     }
 }
 

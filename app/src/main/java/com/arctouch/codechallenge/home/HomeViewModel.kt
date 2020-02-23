@@ -1,38 +1,40 @@
 package com.arctouch.codechallenge.home
 
+import android.util.Log
 import androidx.lifecycle.*
 import androidx.paging.DataSource
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
+import com.arctouch.codechallenge.api.TmdbApi
 import com.arctouch.codechallenge.model.Movie
-import com.arctouch.codechallenge.network.ApiInterceptor
-import com.arctouch.codechallenge.network.provideClient
-import com.arctouch.codechallenge.network.provideOkHttpClient
 import com.arctouch.codechallenge.repository.MoviesDataSource
 import com.arctouch.codechallenge.repository.MoviesRepository
-import org.koin.dsl.module
 
-val homeViewModelModule = module {
-    factory { HomeViewModel(get()) }
-}
-
-class HomeViewModel(private val moviesRepository: MoviesRepository) : ViewModel() {
+class HomeViewModel(private val moviesRepository: MoviesRepository, private val apiClient: TmdbApi) : ViewModel() {
 //    val hasMoviesAndGenres: LiveData<Boolean>
 
     val upcomingMovies: LiveData<PagedList<Movie>> by lazy {
         val config = PagedList.Config.Builder()
-                .setPageSize(20)
+                .setPageSize(10)
                 .setEnablePlaceholders(false)
                 .build()
         pagedListBuilder(config).build()
     }
 
+    val hasMovies: LiveData<Boolean>
+
     private fun pagedListBuilder(config: PagedList.Config): LivePagedListBuilder<Long, Movie> {
 
         val dataSourceFactory = object : DataSource.Factory<Long, Movie>() {
-            override fun create(): DataSource<Long, Movie> = MoviesDataSource(viewModelScope, provideClient(provideOkHttpClient(ApiInterceptor())))
+            override fun create(): DataSource<Long, Movie> = MoviesDataSource(viewModelScope, apiClient)
         }
         return LivePagedListBuilder<Long, Movie>(dataSourceFactory, config)
+    }
+
+    init {
+        hasMovies = Transformations.map(upcomingMovies) {
+                it.isNotEmpty()
+        }
     }
 
 //    val moviesWithGenres: LiveData<List<Movie>>
