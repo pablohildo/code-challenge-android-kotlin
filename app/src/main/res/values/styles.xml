@@ -4,6 +4,18 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColor">@color/textPrimary</item>
     </style>
-
+    <style name="TextAppearance.AppCompat.MovieTitle" parent="TextAppearance.AppCompat.Display1">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/textSecondary</item>
+    </style>
+    <style name="TextAppearance.AppCompat.MovieInfo" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/textSecondary</item>
+    </style>
+    <style name="TextAppearance.AppCompat.Label" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textColor">@color/textPrimary</item>
+    </style>
 </resources>

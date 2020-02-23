@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Desafio Técnico</string>
+    <string name="label_release_date">Data de lançamento</string>
+    <string name="minutes">%s min</string>
+    <string name="movie_error">Esse filme não pôde ser carregado corretamente. Tente novamente mais tarde</string>
+</resources>
