@@ -1,14 +1,13 @@
-package com.arctouch.codechallenge.details
+package com.arctouch.codechallenge.view.details
 
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.observe
 import com.arctouch.codechallenge.R
 import com.arctouch.codechallenge.model.genresString
-import com.arctouch.codechallenge.ui.PaletteRequestListener
+import com.arctouch.codechallenge.view.ui.PaletteRequestListener
 import com.arctouch.codechallenge.util.UrlTypes
 import com.arctouch.codechallenge.util.buildUrl
 import com.bumptech.glide.Glide
@@ -30,7 +29,6 @@ class DetailsActivity : AppCompatActivity() {
             if (it != null) {
                 progressPB.visibility = View.GONE
                 with(it) {
-                    Log.d("AAA", it.toString())
                     titleTXT.text = title
                     runtimeTXT.text = getString(R.string.minutes, runtime.toString())
                     genresTXT.text = genresString()

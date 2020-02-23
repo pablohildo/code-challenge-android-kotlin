@@ -1,4 +1,4 @@
-package com.arctouch.codechallenge.ui
+package com.arctouch.codechallenge.view.ui
 
 import android.animation.ArgbEvaluator
 import android.animation.ValueAnimator
@@ -11,7 +11,6 @@ import com.bumptech.glide.load.DataSource
 import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import kotlinx.android.synthetic.main.activity_detail.*
 
 class PaletteRequestListener(private val view: View) : RequestListener<Drawable?> {
     override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable?>?, isFirstResource: Boolean): Boolean {

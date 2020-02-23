@@ -1,4 +1,4 @@
-package com.arctouch.codechallenge.details
+package com.arctouch.codechallenge.view.details
 
 import androidx.lifecycle.*
 import com.arctouch.codechallenge.model.Movie

@@ -1,4 +1,4 @@
-package com.arctouch.codechallenge.home
+package com.arctouch.codechallenge.view.home
 
 import android.content.Intent
 import androidx.recyclerview.widget.RecyclerView
@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat.startActivity
 import androidx.paging.PagedListAdapter
 import com.arctouch.codechallenge.R
-import com.arctouch.codechallenge.details.DetailsActivity
+import com.arctouch.codechallenge.view.details.DetailsActivity
 import com.arctouch.codechallenge.model.Movie
-import com.arctouch.codechallenge.ui.MovieDiffCallback
+import com.arctouch.codechallenge.view.ui.MovieDiffCallback
 import com.arctouch.codechallenge.util.UrlTypes
 import com.arctouch.codechallenge.util.buildUrl
 import com.bumptech.glide.Glide

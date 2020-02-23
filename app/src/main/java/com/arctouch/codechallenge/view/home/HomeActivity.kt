@@ -1,7 +1,6 @@
-package com.arctouch.codechallenge.home
+package com.arctouch.codechallenge.view.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -21,10 +20,8 @@ class HomeActivity : AppCompatActivity() {
             adapter.submitList(it)
         })
 
-        viewModel.hasMovies.observe(this, Observer {
-            // Checks if true since LiveData<Boolean> can return null
-            Log.d("RRR", it.toString())
-            if (it == true) progressBar.visibility = View.GONE
+        viewModel.isDataSourceEmpty.observe(this, Observer {
+            progressBar.visibility = View.GONE
         })
     }
 }

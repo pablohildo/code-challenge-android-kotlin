@@ -1,4 +1,4 @@
-package com.arctouch.codechallenge.ui
+package com.arctouch.codechallenge.view.ui
 
 import androidx.recyclerview.widget.DiffUtil
 import com.arctouch.codechallenge.model.Movie
