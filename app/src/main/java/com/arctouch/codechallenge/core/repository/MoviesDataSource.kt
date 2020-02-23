@@ -1,4 +1,4 @@
-package com.arctouch.codechallenge.repository
+package com.arctouch.codechallenge.core.repository
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource

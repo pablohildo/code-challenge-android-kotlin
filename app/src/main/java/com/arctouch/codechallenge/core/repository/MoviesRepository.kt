@@ -1,8 +1,8 @@
-package com.arctouch.codechallenge.repository
+package com.arctouch.codechallenge.core.repository
 
-import com.arctouch.codechallenge.api.TmdbApi
+import com.arctouch.codechallenge.core.network.api.TmdbApi
 import com.arctouch.codechallenge.model.Movie
-import com.arctouch.codechallenge.util.Constants
+import com.arctouch.codechallenge.core.util.Constants
 
 class MoviesRepository(private val tmdbApi: TmdbApi) {
 

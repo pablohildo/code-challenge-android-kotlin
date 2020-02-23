@@ -1,4 +1,4 @@
-package com.arctouch.codechallenge.util
+package com.arctouch.codechallenge.core.util
 
 enum class UrlTypes {
     POSTER, BACKDROP

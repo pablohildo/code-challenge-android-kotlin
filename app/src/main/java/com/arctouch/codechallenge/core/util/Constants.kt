@@ -1,4 +1,4 @@
-package com.arctouch.codechallenge.util
+package com.arctouch.codechallenge.core.util
 
 object Constants {
     const val API_KEY = "1f54bd990f1cdfb230adb312546d765d"

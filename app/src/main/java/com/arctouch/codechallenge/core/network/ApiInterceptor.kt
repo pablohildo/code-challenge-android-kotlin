@@ -1,6 +1,6 @@
-package com.arctouch.codechallenge.network
+package com.arctouch.codechallenge.core.network
 
-import com.arctouch.codechallenge.util.Constants
+import com.arctouch.codechallenge.core.util.Constants
 import okhttp3.Interceptor
 import okhttp3.Response
 

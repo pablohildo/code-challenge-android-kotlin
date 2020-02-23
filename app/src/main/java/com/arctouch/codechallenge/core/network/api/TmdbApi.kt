@@ -1,9 +1,9 @@
-package com.arctouch.codechallenge.api
+package com.arctouch.codechallenge.core.network.api
 
 import com.arctouch.codechallenge.model.GenreResponse
 import com.arctouch.codechallenge.model.Movie
 import com.arctouch.codechallenge.model.UpcomingMoviesResponse
-import com.arctouch.codechallenge.util.Constants
+import com.arctouch.codechallenge.core.util.Constants
 import org.koin.core.KoinComponent
 import retrofit2.Response
 import retrofit2.http.GET
